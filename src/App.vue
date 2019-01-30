@@ -1,28 +1,47 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <svg id="world">
+      <atom 
+        v-for="node in nodeList" 
+        v-bind:target="node"
+      ></atom>
+    </svg>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import atom from './components/atom.vue'
+import { setInterval } from 'timers';
 
 export default {
   name: 'app',
+  data: function() {
+    return {
+      nodeList: [
+        { x: 100, y: 100 },
+        { x: 10, y: 50 },
+        { x: 75, y: 25 },
+        { x: 150, y: 200 },
+      ],
+    } 
+  },
   components: {
-    HelloWorld
+    atom
   }
 }
+
+setInterval(function(){
+  //controller
+}, 1000)
 </script>
 
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
   margin-top: 60px;
+}
+#world {
+  width: 500px;
+  height: 300px;
 }
 </style>
