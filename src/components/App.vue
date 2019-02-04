@@ -1,38 +1,36 @@
 <template>
   <div id="app">
-    <svg id="world">
-      <atom v-for="node in nodeList" v-bind:target="node"></atom>
-    </svg>
+    <h1>Life Simulator</h1>
+    <p>
+      The purpose of this app is to set various parameters around
+      a set of organisms to see how they behave over several generations.
+    </p>
+    <habitat/>
   </div>
 </template>
 
 <script>
-import atom from "./Atom.vue";
-import store from "../store"
-import data from "../assets/data/nodes.json"
-import { mapState } from 'vuex'
+import store from "../store";
+import organism from "./Organism.vue";
+import habitat from "./Habitat.vue";
 
 export default {
   name: "app",
   components: {
-    atom
-  },
-  created: function() {
-    store.commit('controller/add', data)
-  },
-  computed: mapState({
-    nodeList: state => state.controller.all[0]
-  }),
+    habitat
+  }
 };
+
+setInterval(function(){
+  store.commit('controller/move')
+}, 1000)
 </script>
 
 <style>
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   margin-top: 60px;
-}
-#world {
-  width: 500px;
-  height: 300px;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 </style>

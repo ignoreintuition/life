@@ -1,5 +1,12 @@
 # life
 
+# Color Scheme
+383D3B
+EEE5E9
+7C7C7C
+92DCE5
+52DEE5
+
 ## Project setup
 ```
 yarn install
