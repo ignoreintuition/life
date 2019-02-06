@@ -10,21 +10,24 @@ import store from "../store";
 import data from "../assets/data/nodes.json";
 import { mapState } from "vuex";
 
+/*
+ * @name habitat
+ * @desc template for the container that will house all of the organisms
+ */
 export default {
   name: "habitat",
   components: {
     organism
   },
   created: function() {
-    store.commit("controller/add", data);
+    store.commit("lifecycle/add", data);
   },
   computed: mapState({
-    nodeList: state => state.controller.population
+    nodeList: state => state.lifecycle.population
   })
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #habitat {
   width: 500px;

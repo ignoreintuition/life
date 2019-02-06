@@ -5,7 +5,12 @@
       The purpose of this app is to set various parameters around
       a set of organisms to see how they behave over several generations.
     </p>
-    <habitat/>
+    <div>
+      <habitat/>
+    </div>
+    <div>
+      <toggleButton/>
+    </div>
   </div>
 </template>
 
@@ -13,17 +18,20 @@
 import store from "../store";
 import organism from "./Organism.vue";
 import habitat from "./Habitat.vue";
-
+import toggleButton from "./ui/ToggleButton.vue";
+/*
+ * @name app
+ * @desc entry point for the app
+ */
 export default {
   name: "app",
   components: {
-    habitat
+    habitat,
+    toggleButton
   }
 };
 
-setInterval(function(){
-  store.commit('controller/move')
-}, 1000)
+store.dispatch("controller/start");
 </script>
 
 <style>

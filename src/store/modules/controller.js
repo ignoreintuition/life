@@ -1,27 +1,44 @@
+/* @name controller.js
+ * @desc controls all the major functionality of the app
+ */
+
 const state = {
-  population: []
+  simulationStatus: false,
 }
 
 const getters = {
-  population: state => {
-    return state.population;
+  getSimulationStatus: () => {
+    return state.simulationStatus;
   }
 }
 
-const actions = {}
+const actions = {
+  /* 
+   * @method start - begins the simulation of the lifecycle
+   */
+  start({ commit }) {
+    mutations.setSimulationStatus(true);
+    const simulation = setInterval(function () {
+      commit('lifecycle/move', null, { root: true });
+      commit('lifecycle/spawn', null, { root: true });
+      if (state.simulationStatus === false) { 
+        clearInterval(simulation); 
+      }
+    }, 100)
+  },
+
+  /* 
+   * @method stop - ends the simulation of the lifecycle
+   */
+  stop() {
+    mutations.setSimulationStatus(false)
+  }
+}
 
 const mutations = {
-  add(state, sample) {
-    if (Array.isArray(sample))
-      sample.forEach( e=> state.population.push(e));
-    else state.population.push(sample);
-  },
-  move(state) {
-    state.population.forEach(e=> {
-      e.x+=Math.random() * 10 - 5;
-      e.y+=Math.random() * 10 - 5;
-    })
-  },
+  setSimulationStatus: status => {
+    state.simulationStatus = status;
+  }
 }
 
 export default {
