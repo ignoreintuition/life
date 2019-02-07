@@ -14,14 +14,26 @@ const getters = {
 
 const mutations = {
   add(state, sample) {
-    if (Array.isArray(sample))
-      sample.forEach(e => state.population.push(e));
-    else state.population.push(sample);
+    if (!Array.isArray(sample))
+      sample = new Array(sample);
+    sample.forEach(e => {
+      e.age = 0;
+      e.gender = 'male';
+      state.population.push(e)
+    });
   },
   move(state) {
     state.population.forEach(e => {
       e.x += Math.random() * 10 - 5;
       e.y += Math.random() * 10 - 5;
+    })
+  },
+  progress(state) {
+    state.population.forEach((e, i)=>{
+      e.age++;
+      if (e.age >= 99){
+        mutations.die(state, i);
+      }
     })
   },
   spawn(state) {
@@ -30,8 +42,8 @@ const mutations = {
         mutations.add(state, { id: null, x: e.x + 10, y: e.y + 10 })
     })
   },
-  die() {
-    // TODO
+  die(state, i) {
+    state.population.splice(i, 1);
   }
 }
 

@@ -5,11 +5,22 @@
       The purpose of this app is to set various parameters around
       a set of organisms to see how they behave over several generations.
     </p>
-    <div>
-      <habitat/>
+    <div class="container">
+      <div class="row">
+        <habitat/>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <panel/>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <toggleButton/>
+      </div>
     </div>
     <div>
-      <toggleButton/>
     </div>
   </div>
 </template>
@@ -19,6 +30,8 @@ import store from "../store";
 import organism from "./Organism.vue";
 import habitat from "./Habitat.vue";
 import toggleButton from "./ui/ToggleButton.vue";
+import panel from "./ui/Panel.vue";
+
 /*
  * @name app
  * @desc entry point for the app
@@ -27,7 +40,8 @@ export default {
   name: "app",
   components: {
     habitat,
-    toggleButton
+    toggleButton,
+    panel,
   }
 };
 

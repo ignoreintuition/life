@@ -1,5 +1,5 @@
 <template>
-  <button v-on:click="onButtonClick" id="ToggleSimulation"> Toggle Simulation </button>
+    <button class="btn btn-primary" v-on:click="onButtonClick" id="ToggleSimulation"> Toggle Simulation </button>
 </template>
 
 <script>

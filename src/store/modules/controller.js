@@ -4,6 +4,7 @@
 
 const state = {
   simulationStatus: false,
+  simulationSpeed: 1000,
 }
 
 const getters = {
@@ -21,12 +22,20 @@ const actions = {
     const simulation = setInterval(function () {
       commit('lifecycle/move', null, { root: true });
       commit('lifecycle/spawn', null, { root: true });
+      commit('lifecycle/progress', null, { root: true });
       if (state.simulationStatus === false) { 
         clearInterval(simulation); 
       }
-    }, 100)
+    }, state.simulationSpeed)
   },
-
+  /* 
+   * @method adjustSpeed - modify the speed of the simulation
+   */
+  adjustSpeed({ dispatch }, speed) {
+    dispatch("stop");
+    mutations.setSimulationSpeed(speed);
+    dispatch("start");
+  },
   /* 
    * @method stop - ends the simulation of the lifecycle
    */
@@ -38,7 +47,10 @@ const actions = {
 const mutations = {
   setSimulationStatus: status => {
     state.simulationStatus = status;
-  }
+  },
+  setSimulationSpeed: s => {
+    state.simulationSpeed = s;
+  },
 }
 
 export default {

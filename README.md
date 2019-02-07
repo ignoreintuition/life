@@ -1,11 +1,5 @@
 # life
-
-# Color Scheme
-383D3B
-EEE5E9
-7C7C7C
-92DCE5
-52DEE5
+Life is a simulation of organisms living in an isolated habitat.  Organisms will live, reproduce, and die over several generations demonstrating their ability to adapt in their environment.
 
 ## Project setup
 ```
