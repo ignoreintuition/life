@@ -15,13 +15,6 @@
         <panel/>
       </div>
     </div>
-    <div class="container">
-      <div class="row">
-        <toggleButton/>
-      </div>
-    </div>
-    <div>
-    </div>
   </div>
 </template>
 
@@ -29,7 +22,6 @@
 import store from "../store";
 import organism from "./Organism.vue";
 import habitat from "./Habitat.vue";
-import toggleButton from "./ui/ToggleButton.vue";
 import panel from "./ui/Panel.vue";
 
 /*
@@ -40,7 +32,6 @@ export default {
   name: "app",
   components: {
     habitat,
-    toggleButton,
     panel,
   }
 };

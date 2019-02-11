@@ -5,6 +5,10 @@
 const state = {
   simulationStatus: false,
   simulationSpeed: 1000,
+  habitat: {
+    height: 300,
+    width: 500,
+  },
 }
 
 const getters = {

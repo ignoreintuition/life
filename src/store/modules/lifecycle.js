@@ -1,3 +1,7 @@
+import { mapActions } from "vuex";
+import utilities from "./utilities";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
+
 /* @name lifecycle.js
  * @desc Contains mutations for managing organisms lifecycle events
  */
@@ -24,8 +28,11 @@ const mutations = {
   },
   move(state) {
     state.population.forEach(e => {
-      e.x += Math.random() * 10 - 5;
-      e.y += Math.random() * 10 - 5;
+      let x = e.x + Math.random() * 10 - 5;
+      let y = e.y + Math.random() * 10 - 5;
+      utilities.actions.checkBounds(controller.habitat, x, y);
+      e.x = x;
+      e.y = y;
     })
   },
   progress(state) {
