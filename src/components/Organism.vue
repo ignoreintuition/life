@@ -1,5 +1,5 @@
 <template>
-  <circle
+    <circle
     class="organism"
     :cx="target.x"
     :cy="target.y"
@@ -7,7 +7,7 @@
     stroke="#383D3B"
     stroke-width="1"
     fill="#52DEE5"
-  />
+    />
 </template>
 
 <script>
@@ -16,12 +16,12 @@
  * @desc: the individual living creatures that exist in the habitat
  */
 export default {
-  name: "organism",
-  props: {
-    target: Object
-  },
-  methods: {},
-  mutations: {}
+    name: "organism",
+    props: {
+        target: Object
+    },
+    methods: {},
+    mutations: {}
 };
 </script>
 

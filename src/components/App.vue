@@ -1,21 +1,21 @@
 <template>
-  <div id="app">
-    <h1>Life Simulator</h1>
-    <p>
-      The purpose of this app is to set various parameters around
-      a set of organisms to see how they behave over several generations.
-    </p>
-    <div class="container">
-      <div class="row">
-        <habitat/>
-      </div>
+    <div id="app">
+        <h1>Life Simulator</h1>
+        <p>
+        The purpose of this app is to set various parameters around
+        a set of organisms to see how they behave over several generations.
+        </p>
+        <div class="container">
+            <div class="row">
+                <habitat/>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <panel/>
+            </div>
+        </div>
     </div>
-    <div class="container">
-      <div class="row">
-        <panel/>
-      </div>
-    </div>
-  </div>
 </template>
 
 <script>
@@ -29,11 +29,11 @@ import panel from "./ui/Panel.vue";
  * @desc entry point for the app
  */
 export default {
-  name: "app",
-  components: {
-    habitat,
-    panel,
-  }
+    name: "app",
+    components: {
+        habitat,
+        panel,
+    }
 };
 
 store.dispatch("controller/start");
@@ -41,9 +41,9 @@ store.dispatch("controller/start");
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  margin-top: 60px;
-  margin-left: 10%;
-  margin-right: 10%;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    margin-top: 60px;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 </style>

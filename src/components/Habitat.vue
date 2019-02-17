@@ -1,7 +1,7 @@
 <template>
-  <svg id="habitat">
-    <organism v-for="node in nodeList" :key="node.id" v-bind:target="node"></organism>
-  </svg>
+    <svg id="habitat">
+        <organism v-for="node in nodeList" :key="node.id" v-bind:target="node"></organism>
+    </svg>
 </template>
 
 <script>
@@ -15,24 +15,24 @@ import { mapState } from "vuex";
  * @desc template for the container that will house all of the organisms
  */
 export default {
-  name: "habitat",
-  components: {
-    organism
-  },
-  created: function() {
-    store.commit("lifecycle/add", data);
-  },
-  computed: mapState({
-    nodeList: state => state.lifecycle.population
-  })
+    name: "habitat",
+    components: {
+        organism
+    },
+    created: function() {
+        store.commit("lifecycle/add", data);
+    },
+    computed: mapState({
+        nodeList: state => state.lifecycle.population
+    })
 };
 </script>
 
 <style scoped>
 #habitat {
-  width: 500px;
-  height: 300px;
-  background-color: #eee5e9;
-  border: #383d3b solid 2px;
+    width: 500px;
+    height: 300px;
+    background-color: #eee5e9;
+    border: #383d3b solid 2px;
 }
 </style>
