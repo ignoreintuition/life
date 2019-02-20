@@ -31,6 +31,7 @@ const actions = {
             commit('lifecycle/move', null, { root: true });
             commit('lifecycle/spawn', null, { root: true });
             commit('lifecycle/progress', null, { root: true });
+            commit('lifecycle/breath', null, { root: true });
             if (state.simulationStatus === false) { 
                 clearInterval(simulation); 
             }

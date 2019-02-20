@@ -1,6 +1,7 @@
 /* jshint esversion: 6 */
 import { mapActions } from "vuex";
 import utilities from "./utilities";
+import air from "./sustenance/air";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 
 /* @name lifecycle.js
@@ -36,6 +37,15 @@ const mutations = {
                 e.y = y;
             }
         });
+    },
+    breath(state) {
+      state.population.forEach(e => {
+        if (air.getters.getOxygenLevel <= 0) {
+            e.oxygen = false;
+        } else {
+            air.mutations.depleteAir();
+        }
+      });
     },
     progress(state) {
         state.population.forEach((e, i)=>{

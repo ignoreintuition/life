@@ -1,11 +1,13 @@
 <template>
     <svg id="habitat">
         <organism v-for="node in nodeList" :key="node.id" v-bind:target="node"></organism>
+        <tree v-bind:target="tree"/> 
     </svg>
 </template>
 
 <script>
 import organism from "./Organism.vue";
+import tree from "./Tree.vue";
 import store from "../store";
 import data from "../assets/data/nodes.json";
 import { mapState } from "vuex";
@@ -17,7 +19,8 @@ import { mapState } from "vuex";
 export default {
     name: "habitat",
     components: {
-        organism
+        organism,
+        tree,
     },
     created: function() {
         store.commit("lifecycle/add", data);

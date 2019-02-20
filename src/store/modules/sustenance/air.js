@@ -1,17 +1,27 @@
 /* jshint esversion: 6 */
 
 const state = {
-    airSuppy: 100,
+    airSupply: 100,
 };
 
 const getters = {
     getAirSuppy: function() {
-        return state.airSuppy;
+        return state.airSupply;
     },
 };
 
 const mutations = {
-
+    depleteAir: function() {
+        if (state.airSupply > 0){
+            state.airSupply = state.airSupply - 0.01;
+            return 1;
+        } else {
+            return 0;
+        }
+    },
+    produceAir:function() {
+        state.airSupply = state.airSupply + 0.01;
+    }
 };
 
 export default {
